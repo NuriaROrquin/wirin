@@ -16,7 +16,7 @@ public class LocalOcrEngineIntegrationTests : IDisposable
     {
         var mockLogger = new Mock<ILogger<LocalOcrEngine>>();
         _engine = new LocalOcrEngine(mockLogger.Object);
-        _uploadsPath = "C:/Users/talkt/source/repos/wirin-api/Wirin.Api/Uploads";
+        _uploadsPath = Path.Combine(AppContext.BaseDirectory, "Uploads");
         _tempFiles = new List<string>();
     }
 
