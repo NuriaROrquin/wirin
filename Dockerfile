@@ -24,6 +24,9 @@ COPY --from=build /app/publish .
 COPY Wirin.Infrastructure/NativeBinaries/x64/libpdfium.so ./libpdfium.so
 COPY Wirin.Infrastructure/tessdata/ ./tessdata/
 
+# Copiar los archivos PDF para las semillas
+COPY Wirin.Api/Uploads /app/Uploads
+
 ENV LD_LIBRARY_PATH="/app:$LD_LIBRARY_PATH"
 ENV TESSDATA_PREFIX="/app/tessdata"
 
