@@ -127,7 +127,7 @@ public static class OrderSeeder
             string[] autores = { "García Márquez", "Cervantes", "Borges", "Cortázar", "Neruda", "Paz", "Vargas Llosa", "Allende", "Mistral", "Fuentes", "Rulfo", "Bolaño", "Poniatowska", "Sabato", "Benedetti" };
 
             // Obtener la lista de archivos PDF disponibles en la carpeta Uploads
-            string uploadsPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Uploads");
+            string uploadsPath = Path.Combine(AppContext.BaseDirectory, "Uploads");
             string[] pdfFiles = Directory.GetFiles(uploadsPath, "*.pdf");
 
             // Para cada OrderDelivery, crear al menos 10 órdenes
