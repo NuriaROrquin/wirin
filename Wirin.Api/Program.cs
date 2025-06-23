@@ -23,6 +23,13 @@ using Wirin.Infrastructure.Strategies.Local;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// Configurar el puerto asignado por Render
+var port = Environment.GetEnvironmentVariable("PORT") ?? "5000";
+builder.WebHost.ConfigureKestrel(options =>
+{
+    options.ListenAnyIP(int.Parse(port));
+});
+
 // Add services to the container.
 
 var connectionString = builder.Configuration["ConnectionStrings:DefaultConnection"];
