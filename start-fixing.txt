@@ -1,0 +1,16 @@
+Verificar que Tesseract esta procesando OK
+- Si hay un texto en el message de la respuesta de la api se debe hacer fixing del message
+- Si en el array de pages el texto comunica un error debe hacerse fixing segun el texto
+- En todos los pasos debo estar autenticado enviando un bearer token en las request al servidor
+- siempre se tiene que ejecutar con docker
+- evitar re-compilaciones innecesarias
+- Haz solamente peticiones http
+
+Pasos a realizar:
+1. Logearse a la aplicacion con las siguientes crdenciales (credenciales correctas: mariagonzalez@biblioteca.com con password Test123.)
+2. Usando el token revisar si existen tareas para procesar 
+3. Realizar peticiones a /api/ocr/Local?id=1 (En caso de no tener esta tarea crearla siguiendo los pasos de creacion de tareas)
+
+Pasos de creacion de tareas:
+1. Logearse a la aplicacion con las siguientes crdenciales (credenciales correctas: mariagonzalez@biblioteca.com con password Test123.)
+2. Buscar el ordercontroller y descubrir lo que necesita mediante el Swagger y enviarle datos de prueba usando archivos PDF de /Wirin.Api/Uploads unicamente

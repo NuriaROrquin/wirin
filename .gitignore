@@ -1,0 +1,15 @@
+.vs/
+Wirin.Api/.env
+Wirin.Api/bin
+Wirin.Api/obj
+Wirin.Application/obj
+Wirin.Application/bin
+Wirin.Domain/bin
+Wirin.Domain/obj
+Wirin.Infrastructure/bin
+Wirin.Infrastructure/obj
+Wirin.Tests/bin
+Wirin.Tests/obj
+bin
+obj
+/Wirin.Api/Uploads

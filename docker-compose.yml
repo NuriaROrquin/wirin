@@ -1,0 +1,40 @@
+services:
+  api:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "44342:80"
+      - "8081:443"
+    depends_on:
+      - db
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - CONNECTION_STRING=Server=db;Database=TPI_db;User=sa;Password=YourStrong!Passw0rd;TrustServerCertificate=True;
+      - JWT_KEY=4vL8f!ZqR9B2eK7#cXpFhQz!WdNmTyPu
+      - JWT_ISSUER=tpi-api
+      - JWT_AUDIENCE=tpi-api-clients
+      - FRONT_URL=http://localhost:4200
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - ASPNETCORE_HTTP_PORTS=80
+      - ASPNETCORE_HTTPS_PORTS=443
+      - ASPNETCORE_URLS=http://+:80
+    volumes:
+      - ./Wirin.Api/Uploads:/app/Uploads
+      - ./Wirin.Infrastructure/NativeBinaries/x64:/app/NativeBinaries/x64
+    restart: on-failure
+
+  db:
+    image: mcr.microsoft.com/mssql/server:2022-latest
+    environment:
+      - ACCEPT_EULA=Y
+      - SA_PASSWORD=YourStrong!Passw0rd
+      - MSSQL_PID=Developer
+    ports:
+      - "1433:1433"
+    volumes:
+      - sqlserver_data:/var/opt/mssql
+    restart: always
+
+volumes:
+  sqlserver_data:
